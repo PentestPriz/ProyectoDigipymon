@@ -12,4 +12,9 @@ class Jugador:
     def añadir_digipymon(self, digipymon):
         self.lista_digipymon.apend(digipymon)
         cantidad_digipymon = cantidad_digipymon + 1
-            
+
+    def consultar_digipymon(self, digipymon):
+        print("Estos son todos tus digipymon.")
+        for iterador in digipymon:
+            print("- " + iterador)
+        print("Vaya..., esas son más criaturas que las disponibles en cierta saga de videojuegos...")
