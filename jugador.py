@@ -7,4 +7,9 @@ class Jugador:
         self.nombre = nombre
         lista_digpymon = []
         cantidad_digipymon = 0
-        digicoins = 10        
+        digicoins = 10
+
+    def añadir_digipymon(self, digipymon):
+        self.lista_digipymon.apend(digipymon)
+        cantidad_digipymon = cantidad_digipymon + 1
+            
