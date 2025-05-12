@@ -15,4 +15,25 @@ class Inventario:
         """
         self.objetos = {}
 
-    
+    def añadir_objeto(self, nombre, cantidad):
+        """
+        Método que nos permite añadir objetos al inventario, comprobando si ya se encuentran en él.
+        También nos permite incrtementar la cantidad de los mismos en caso de que ya existan.
+
+        Args:
+            self: Referencia a los atributos propios
+            nombre (str): Cadena de caracteres la cual representa el nombre del objeto a agregar. Es la clave del diccionario
+            cantidad (int): Número que representa la cantidad de los objetos. Actúa como contenido del diccionario.
+        """
+
+        if nombre in self.objetos:
+            self.objetos[nombre] += cantidad
+        else:
+            self.objetos[nombre] = cantidad
+
+        print(str(self.objetos))
+
+inventario = Inventario()
+
+inventario.añadir_objeto("hola", 4)
+inventario.añadir_objeto("hola", 4)
