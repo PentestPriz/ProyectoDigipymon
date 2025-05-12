@@ -37,11 +37,10 @@ class Inventario:
 
         Args:
             self: Referencia a los atributos propios.
-            nombre (str): Nombre del objeto que utilizaremos.
+            nombre (str): Cadena de caracteres que repesenta el nombre del objeto que utilizaremos.
         """
 
         if self.objetos[nombre] == 1:
             del self.objetos[nombre]
         else:
             self.objetos[nombre] -= 1
-        
