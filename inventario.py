@@ -31,9 +31,17 @@ class Inventario:
         else:
             self.objetos[nombre] = cantidad
 
-        print(str(self.objetos))
+    def usar_objeto(self, nombre): 
+        """
+        Método que nos permite usar objetos, eliminándolos del inventario virtual (los efectos se aplicarán más tarde).
 
-inventario = Inventario()
+        Args:
+            self: Referencia a los atributos propios.
+            nombre (str): Nombre del objeto que utilizaremos.
+        """
 
-inventario.añadir_objeto("hola", 4)
-inventario.añadir_objeto("hola", 4)
+        if self.objetos[nombre] == 1:
+            del self.objetos[nombre]
+        else:
+            self.objetos[nombre] -= 1
+        
