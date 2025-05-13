@@ -7,11 +7,10 @@ class ListaNombres:
     """
     def __init__ (self, nombres_digipymon, nombres_entrenadores):
         """
-        Constructor por parámetros de la clase ListaNombres.
+        Constructor por defecto de la clase ListaNombres
 
         Args:
-            nombres_digipymon (str): Cadena de texto donde se muestran los nombres de los diferentes 20 digipymons del juego.
-            nombres_entrenadores (str): Cadena de texto donde se muestran los nombres de los diferentes 20 entrenadores del juego.
+            self: Referencia a los atributos propios
         """
         self.nombres_digipymon = ["Bugnix", "Larvok", "Mandiblash", "Zappinch", "Spirafly", "Chitinox", "Drilburron", "Glowmite", "Venogrit", "Scorvex", "Fungnash", "Toxibuzz", "Webdrill", "Creepuff", "Nettling", "Slinklaw","Moltwist", "Stingrowl", "Pupagoon", "Silkobrax"]
 
