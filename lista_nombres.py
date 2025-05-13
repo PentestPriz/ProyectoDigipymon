@@ -5,7 +5,7 @@ class ListaNombres:
     Clase ListaNombres del Proyecto Digipymon.
     Esta clase nos servirá para gestionar las listas de Digipymons y de entrenadores enemigos.
     """
-    def __init__ (self, nombres_digipymon, nombres_entrenadores):
+    def __init__ (self):
         """
         Constructor por defecto de la clase ListaNombres
 
