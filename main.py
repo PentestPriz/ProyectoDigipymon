@@ -6,11 +6,13 @@ from digipymon import Digipymon
 from enemigo import Enemigo
 from inventario import Inventario
 from jugador import Jugador
+from lista_nombres import ListaNombres
 import random
 
 def menu_opciones():
     """
     Función que nos permitirá elegir una de las opciones de las disponibles en el videojuego.
+    Todo ello se hará mediante diversos print
     """
 
     print("Escoja una de las siguientes opciones: ")
@@ -25,5 +27,10 @@ def menu_opciones():
     seleccion = int(input("Introduzca su opción aquí: "))
 
     return seleccion
+
+def combate():
+    """
+    Función que nos permitirá entrar en combate con un digipymon generado de manera aleatoria.
+    """
 
 

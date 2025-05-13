@@ -1,4 +1,4 @@
-class enemigo:
+class Enemigo:
     """
     Clase Enemigo del proyecto Digipymon.
     La clase se encargará de la gestión de enemigos  y la asociación con sus digipymons.
