@@ -12,3 +12,8 @@ class clase_ListaNombres:
 
         self.nombres_entrenadores = ["Kaelor", "Tamina", "Rudrek", "Vionne", "Zark", "Elira", "Bront", "Mysha", "Kazen", "Thorne", 
                                      "Luneth", "Draxil", "Selka", "Jurok", "Amari", "Fenrik", "Vessa", "Torak", "Nimelle", "Quorin"]    
+        
+    def obtener_nombredigipymon(self):
+        return random.choice(self.nombre_digipymon)
+    def obtener_nombreentrenador(self):
+        return random.choice(self.nombre_entrenador)
