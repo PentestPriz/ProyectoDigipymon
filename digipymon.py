@@ -21,4 +21,13 @@ class Digipymon:
         self.ataque = ataque
         self.tipo = tipo
         self.nivel = nivel
+
+    def __str__(self):
+        """
+        Método que nos permitirá la impresión por consola de los distintos atributos de nuestra clase Digipymon.
+
+        Args:
+            self: Referencia a los atributos propios.
+        """
         
+        print(f"Nombre del digipymon: {self.nombre}\nVida del digipymon: {self.vida}\nAtaque del digipymon: {self.ataque}\nVida del digipymon: {self.vida}\nTipo del digipymon: {self.tipo}\nNivel del digipymon: {self.nivel}")
