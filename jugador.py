@@ -12,7 +12,7 @@ class Jugador:
             nombre (str): Cadena de caracteres que representa el nombre del jugador
         """
         self.nombre = nombre
-        self.lista_digpymon = []
+        self.lista_digipymon = []
         self.cantidad_digipymon = 0
         self.digicoins = 10
 
@@ -25,7 +25,7 @@ class Jugador:
             self: Referencia a los atributos propios.
             digipymon (Digipymon): Objeto de la clase Digipymon que añadiremos al jugador.
         """
-        self.lista_digipymon.apend(digipymon)
+        self.lista_digipymon.append(digipymon)
         cantidad_digipymon = cantidad_digipymon + 1
 
     def consultar_digipymon(self, digipymon):
