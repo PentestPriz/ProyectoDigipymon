@@ -12,8 +12,8 @@ class Enemigo:
             nombre (str): Cadena de caracteres que representa el nombre del enemigo
         """
         self.nombre = (nombre)
-        lista_digipymon = []
-        cantidad_digipymon = 0
+        self.lista_digipymon = []
+        self.cantidad_digipymon = 0
     
     def añadir_digipymon(self, digipymon):
         """
@@ -23,5 +23,5 @@ class Enemigo:
             self: Referencia a los atributos propios.
             digipymon (Digipymon): Objeto de la clase Digipymon que añadiremos al enemigo.
         """
-        self.lista.digipymons(digipymon)
-        self.cantidad.digipymon = digipymon + 1
+        self.lista_digipymon.append(digipymon)
+        self.cantidad_digipymon = digipymon + 1
