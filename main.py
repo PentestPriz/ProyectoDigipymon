@@ -28,9 +28,30 @@ def menu_opciones():
 
     return seleccion
 
-def combate():
+def combate(jugador):
     """
     Función que nos permitirá entrar en combate con un digipymon generado de manera aleatoria.
+
+    Args:
+        jugador (Jugador): Objeto que de la clase Jugador que representa al jugador de nuestro videojuego.
     """
+
+    """ 
+    Creamos un objeto de la clase ListaNombres() y de la clase Enemigo.
+    Generamos un nombre aleatorio de la lista de nombres de digipymon con el método habilitado para ello.
+    """
+    lista_nombres = ListaNombres()
+    enemigo = Enemigo(lista_nombres.obtener_nombreentrenador)
+
+    #Asignamos al enemigo la cantidad de digipymons pertinente (equivalente a la nuestra)
+
+    enemigo.cantidad_digipymon = jugador.cantidad_digipymon
+
+    #Preguntamos al usuario por la opción a realizar:
+
+    print("¡Elije una de las siguientes opciones!")
+    print("1. Combatir")
+    print("2. Huir (cuesta 1 digicoin)")
+    opcion = int(input())
 
 
