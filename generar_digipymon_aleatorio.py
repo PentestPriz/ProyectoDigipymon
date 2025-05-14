@@ -7,4 +7,6 @@ def generar_digipymon_aleatorio():
     nivel = random.randint(1,3)
     tipo = random.choice("fuego", "agua", "planta")
     nombre = lista.obtener_nombre_digipymon()
+    
+    return digipymon(nombre, tipo, nivel, vida, ataque)
  
