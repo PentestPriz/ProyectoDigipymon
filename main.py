@@ -28,7 +28,7 @@ def menu_opciones():
 
     return seleccion
 
-def combate(jugador):
+def combate(jugador=Jugador()):
     """
     Función que nos permitirá entrar en combate con un digipymon generado de manera aleatoria.
 
@@ -42,10 +42,15 @@ def combate(jugador):
     """
     lista_nombres = ListaNombres()
     enemigo = Enemigo(lista_nombres.obtener_nombreentrenador)
+    victorias = 0
+    derrotas = 0
+    lista_digipymons_enemigos = enemigo.lista_digipymon[]
 
-    #Asignamos al enemigo la cantidad de digipymons pertinente (equivalente a la nuestra)
+    #Asignamos al enemigo la cantidad de digipymons pertinente (equivalente a la nuestra).
+    #Esto lo haremos mediante un bucle "for"
 
-    enemigo.cantidad_digipymon = jugador.cantidad_digipymon
+    for i in range(jugador.cantidad_digipymon):
+        enemigo.añadir_digipymon(generar_digipymon_aleatorio())
 
     #Preguntamos al usuario por la opción a realizar:
 
@@ -54,4 +59,53 @@ def combate(jugador):
     print("2. Huir (cuesta 1 digicoin)")
     opcion = int(input())
 
+    #Hacemos un condicional que ejecutará el combate o lo saltará en función de la opción
+    if opcion == 1:
+        #Imprime el nombre del enemigo
+        print(f"¡Te enfrentas contra {enemigo.nombre}!")
+        #Bucle for que recorre la lista de ambos jugadores.
+        for iterador in len(jugador.lista_digipymon):
+            print(f"{enemigo.nombre} saca a {enemigo.lista_digipymon[iterador].nombre}.")
+            #Si nuestro ataque es mayor, entonces nuestro digipymon ganará el combate, restaremos los puntos de ataque del digipymon enemigo a la salud de nuestro digipymon actual y y sumará 1 al contador de victorias.
+            if jugador.lista_digipymon[iterador].ataque > enemigo.lista_digipymon[iterador].ataque:
+                jugador.lista_digipymon[iterador].salud = jugador.lista_digipymon[iterador].salud - enemigo.lista_digipymon[iterador].ataque
+                print("¡Has ganado el combate!")
+                victorias += 1
+            #En caso contrario, restaremos los puntos de ataque del digipymon enemigo a la salud de nuestro digipymon actual y sumaremos 1 al contador de derrotas.
+            elif jugador.lista_digipymon[iterador].ataque < enemigo.lista_digipymon[iterador].ataque:
+                jugador.lista_digipymon[iterador].salud = jugador.lista_digipymon[iterador].salud - enemigo.lista_digipymon[iterador].ataque
+                print("Has perdido el combate...")
+                derrotas += 1
+            #En caso de empate, haremos la simulación de tirar una moneda al aire, escogiendo un número entre 1 o 2 y seleccionando un aleatorio entre ellos.
+            else:
+                print("¡Nos encontramos ante un empate!")
+                cara_escogida = int(input("Selecciona entre cara o cruz (1 o 2):"))
+                cara_resultante = random.randint(1, 2)
+                if cara_escogida == cara_resultante:
+                    print("¡Ganaste el combate!")
+                    victorias += 1
+                elif cara_escogida != cara_resultante:
+                    print("Has perdido el combate...")
+                    derrotas += 1
+                else:
+                    print("Has introducido una opción no válida, y perdido el combate por ello...")
+                    derrotas += 1
+        
+        """
+        Decidiremos si se gana el combate en función del número de victorias y derrotas.
+        También restaremos el número de derrotas a las digicoins o sumaremos las victorias a las mismas en función de ello.
+        """
+        
+        if victorias > derrotas:
+            print(f"¡Has ganado el duelo, ganaste {victorias} digicoins!")
+            jugador.digicoins += victorias
+        elif victorias < derrotas:
+            print("Has perdido el duelo...")
+            if jugador.digicoins < 0:
+                print("No te quitamos digicoins ya que no tienes ni una...")
+            else:
+                print(f"Has perdido el duelo, ganaste {derrotas} digicoins...")
+                jugador.digicoins -= derrotas
+        else:
+            print("Has quedado empate..., no vamos a quitarte monedas por el mal trago...")
 
