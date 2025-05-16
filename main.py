@@ -44,7 +44,7 @@ def combate(jugador=Jugador()):
     enemigo = Enemigo(lista_nombres.obtener_nombreentrenador)
     victorias = 0
     derrotas = 0
-    lista_digipymons_enemigos = enemigo.lista_digipymon[]
+    lista_digipymons_enemigos = enemigo.lista_digipymon
 
     #Asignamos al enemigo la cantidad de digipymons pertinente (equivalente a la nuestra).
     #Esto lo haremos mediante un bucle "for"
@@ -96,6 +96,7 @@ def combate(jugador=Jugador()):
         También restaremos el número de derrotas a las digicoins o sumaremos las victorias a las mismas en función de ello.
         """
         
+        #Si las victorias son superiores a las derrotas se gana, en caso contrario se pierde. Si son iguales se empata.
         if victorias > derrotas:
             print(f"¡Has ganado el duelo, ganaste {victorias} digicoins!")
             jugador.digicoins += victorias
@@ -108,4 +109,10 @@ def combate(jugador=Jugador()):
                 jugador.digicoins -= derrotas
         else:
             print("Has quedado empate..., no vamos a quitarte monedas por el mal trago...")
+
+    elif opcion == 2:
+        print("¡Has huído del combate!")
+        jugador.digicoins -= 1
+    else:
+        print("La opción no es válida, prueba de nuevo.")
 
