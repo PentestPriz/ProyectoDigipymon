@@ -24,4 +24,4 @@ class Enemigo:
             digipymon (Digipymon): Objeto de la clase Digipymon que añadiremos al enemigo.
         """
         self.lista_digipymon.append(digipymon)
-        self.cantidad_digipymon = digipymon + 1
+        self.cantidad_digipymon += 1
