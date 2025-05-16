@@ -28,7 +28,7 @@ def menu_opciones():
 
     return seleccion
 
-def combate(jugador=Jugador()):
+def combate(jugador=Jugador("Josito")):
     """
     Función que nos permitirá entrar en combate con un digipymon generado de manera aleatoria.
 
@@ -44,13 +44,14 @@ def combate(jugador=Jugador()):
     enemigo = Enemigo(lista_nombres.obtener_nombreentrenador)
     victorias = 0
     derrotas = 0
-    lista_digipymons_enemigos = enemigo.lista_digipymon
+
 
     #Asignamos al enemigo la cantidad de digipymons pertinente (equivalente a la nuestra).
     #Esto lo haremos mediante un bucle "for"
 
-    for i in range(jugador.cantidad_digipymon):
-        enemigo.añadir_digipymon(generar_digipymon_aleatorio())
+    for i in range(6):
+        enemigo.añadir_digipymon(digipymon=Digipymon(lista_nombres.obtener_nombredigipymon(), random.randint(10, 20), random.randint(10, 20), "Planta", 15))
+        jugador.añadir_digipymon(digipymon=Digipymon(lista_nombres.obtener_nombredigipymon(), random.randint(10, 20), random.randint(10, 20), "Planta", 15))
 
     #Preguntamos al usuario por la opción a realizar:
 
@@ -69,43 +70,43 @@ def combate(jugador=Jugador()):
 
         #Bucle for que recorre la lista de ambos jugadores.
 
-        for iterador in len(jugador.lista_digipymon):
+        for iterador in range(jugador.cantidad_digipymon):
 
             print(f"¡{jugador.nombre} saca a {jugador.lista_digipymon[iterador].nombre}!")
             print(f"¡{enemigo.nombre} saca a {enemigo.lista_digipymon[iterador].nombre}!")
 
             """
             Si nuestro ataque es mayor, entonces nuestro digipymon ganará el combate.
-            Restaremos los puntos de ataque del digipymon enemigo a la salud de nuestro digipymon actual y y sumará 1 al contador de victorias.
+            Restaremos los puntos de ataque del digipymon enemigo a la vida de nuestro digipymon actual y y sumará 1 al contador de victorias.
             """
 
             if jugador.lista_digipymon[iterador].ataque > enemigo.lista_digipymon[iterador].ataque:
 
-                if jugador.lista_digipymon[iterador].salud > 0:
-                    jugador.lista_digipymon[iterador].salud = jugador.lista_digipymon[iterador].salud - enemigo.lista_digipymon[iterador].ataque
+                if jugador.lista_digipymon[iterador].vida > 0:
+                    jugador.lista_digipymon[iterador].vida = jugador.lista_digipymon[iterador].vida - enemigo.lista_digipymon[iterador].ataque
                     print("¡Has ganado el combate!")
                     victorias += 1
 
-                    if jugador.lista_digipymon[iterador].salud <= 0:
-                        print(f"¡La salud de {jugador.lista_digipymon[iterador].nombre} se encuentra a 0!")
-                        jugador.lista_digipymon[iterador].salud = 0
+                    if jugador.lista_digipymon[iterador].vida <= 0:
+                        print(f"¡La vida de {jugador.lista_digipymon[iterador].nombre} se encuentra a 0!")
+                        jugador.lista_digipymon[iterador].vida = 0
 
                 else:
 
-                    print(f"¡La salud de {jugador.lista_digipymon[iterador].nombre} se encuentra a 0!")
-                    jugador.lista_digipymon[iterador].salud = 0
+                    print(f"¡La vida de {jugador.lista_digipymon[iterador].nombre} se encuentra a 0!")
+                    jugador.lista_digipymon[iterador].vida = 0
                     print("Por tanto, has perdido el combate...")
                     derrotas -= 1
 
-            #En caso contrario, restaremos los puntos de ataque del digipymon enemigo a la salud de nuestro digipymon actual y sumaremos 1 al contador de derrotas.
+            #En caso contrario, restaremos los puntos de ataque del digipymon enemigo a la vida de nuestro digipymon actual y sumaremos 1 al contador de derrotas.
 
             elif jugador.lista_digipymon[iterador].ataque < enemigo.lista_digipymon[iterador].ataque:
 
-                if jugador.lista_digipymon[iterador].salud > 0:
-                    jugador.lista_digipymon[iterador].salud = jugador.lista_digipymon[iterador].salud - enemigo.lista_digipymon[iterador].ataque
+                if jugador.lista_digipymon[iterador].vida > 0:
+                    jugador.lista_digipymon[iterador].vida = jugador.lista_digipymon[iterador].vida - enemigo.lista_digipymon[iterador].ataque
                 else:
-                    print("¡Tu salud se encuentra a 0!")
-                    jugador.lista_digipymon[iterador].salud = 0
+                    print("¡Tu vida se encuentra a 0!")
+                    jugador.lista_digipymon[iterador].vida = 0
                 print("¡Has perdido el combate!")
                 derrotas += 1
 
@@ -126,11 +127,11 @@ def combate(jugador=Jugador()):
                     derrotas += 1
 
                 #Quitaremos al jugador una cantidad de vida equivalente al ataque de el digipymon enemigo como en los otros casos.
-                if jugador.lista_digipymon[iterador].salud > 0:
-                    jugador.lista_digipymon[iterador].salud = jugador.lista_digipymon[iterador].salud - enemigo.lista_digipymon[iterador].ataque
+                if jugador.lista_digipymon[iterador].vida > 0:
+                    jugador.lista_digipymon[iterador].vida = jugador.lista_digipymon[iterador].vida - enemigo.lista_digipymon[iterador].ataque
                 else:
-                    print(f"¡La salud de {jugador.lista_digipymon[iterador].nombre} se encuentra a 0!")
-                    jugador.lista_digipymon[iterador].salud = 0
+                    print(f"¡La vida de {jugador.lista_digipymon[iterador].nombre} se encuentra a 0!")
+                    jugador.lista_digipymon[iterador].vida = 0
         
         """
         Decidiremos si se gana el combate en función del número de victorias y derrotas.
@@ -152,9 +153,13 @@ def combate(jugador=Jugador()):
         else:
             print("Has quedado empate..., no vamos a quitarte monedas por el mal trago...")
 
+        print(f"Digicoins: {jugador.digicoins}")
+
     elif opcion == 2:
         print("¡Has huído del combate!")
         jugador.digicoins -= 1
     else:
         print("La opción no es válida, prueba de nuevo.")
+
+combate(jugador=Jugador("Josito"))
 
