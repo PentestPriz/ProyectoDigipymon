@@ -1,0 +1,3 @@
+def digishop(jugadorObjeto: Jugador, inventario: Inventario):
+    bucle = True
+while bucle:
