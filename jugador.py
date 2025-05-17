@@ -30,7 +30,7 @@ class Jugador:
         self.lista_nombres_digipymon.append(digipymon.nombre)
         self.cantidad_digipymon +=1
 
-    def consultar_digipymon(self, digipymon):
+    def consultar_digipymon(self):
         """
         Método para consultar la lista de digipymons, recorriéndola e imprimiñendola.
 
@@ -39,8 +39,12 @@ class Jugador:
             digipymon (Digipymon): Objeto de la clase Digipymon que añadiremos al jugador
         """
         print("Estos son todos tus digipymon.")
-        for iterador in digipymon:
-            print("- " + iterador)
+        for iterador in self.lista_digipymon:
+            print("- Nombre: " + iterador.nombre)
+            print(f"- Ataque: {iterador.ataque}")
+            print(f"- Vida: {iterador.vida}")
+            print(f"- Tipo: {iterador.tipo}")
+            print(f"- Nivel: {iterador.nivel}")
         print("Vaya..., esas son más criaturas que las disponibles en cierta saga de videojuegos...")
 
     def consultar_digicoins(self):
@@ -50,4 +54,4 @@ class Jugador:
         Args:
             self: Referencia a los atributos propios.
         """
-        print(str(self.digicoins))
+        print(f"Tienes {self.digicoins} digicoins")
