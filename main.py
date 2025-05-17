@@ -385,7 +385,11 @@ def usar_item(jugador, inventario):
             print("Opción no válida, prueba de nuevo...")
                 
 
+def main():
+    """
+    Función principal del videojuego, en la cuál se ejecutará el programa.
+    """
 
-
-
-
+    #Creamos el objeto jugador y el inventario
+    jugador = Jugador()
+    inventario = Inventario()
