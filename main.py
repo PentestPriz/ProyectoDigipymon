@@ -393,3 +393,19 @@ def main():
     #Creamos el objeto jugador y el inventario
     jugador = Jugador()
     inventario = Inventario()
+
+    bucle = True
+    while bucle:
+        seleccion = menu_opciones()
+        if seleccion == 1:
+            buscar_digipymon_aleatorio(jugador, inventario)
+        elif seleccion == 2:
+            combate(jugador)
+        elif seleccion == 3:
+            digishop(jugador, inventario)
+        elif seleccion == 4:
+            usar_item(jugador, inventario)
+        elif seleccion == 5:
+            inventario.consultar_inventario()
+        elif seleccion == 6:
+            jugador.consultar_digipymon()
