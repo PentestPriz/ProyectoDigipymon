@@ -281,18 +281,76 @@ def usar_item(jugador, inventario):
 
     print("Este es tu inventario: ")
 
+    #Mostramos al jugador los digipymon que tiene
     for nombre in inventario.objetos:
         print(f"Nombre del objeto: {nombre}\nCantidad: {inventario.objetos[nombre]}\n")
     
+    #Entramos en el bucle de la funcionalidad
     control_inventario = True
     while control_inventario:
+
+        #Se pide la opción a insertar
+
         opcion = str(input("Escribe el nombre del objeto que deseas utilizar (Escribe Salir para salir):"))
 
+        #Si es digipyball, no funciona
+
         if opcion == "Digipyball":
-            print("¡No puedes usar las digipyballs!")
+            print("¡No puedes usar las digipyballs fuera de encuentros!")
+        
         elif opcion == "Poción":
+            
+            #Comprueba si hay pociones
+
             if inventario.objetos[opcion] == 0:
                 print(f"No tienes pociones...")
+
+            else:
+                """
+                En caso de que sí, muestra los digipymon que hay y les asigna un "id" a modo de iterador.
+
+                En caso de duda acerca de por qué no se ha hecho una búsqueda por texto y después encontrar el índice mediante el método "index",
+                clarificar que esto se ha hecho así debido a que es posible tener varios digipymon con un mismo nombre, así que debido a la naturaleza
+                del juego, se vió más sencillo seleccionarlo en una simulación de "menú" mediante los ids, solventando asímismo el problema.
+                """
+
+                iterador = 1
+                print("Estos son tus digipymon: \n")
+                for digipymon in jugador.lista_digipymon:
+                    print(f"{iterador}.")
+                    print(f"- Nombre: {digipymon.nombre}")
+                    print(f"- Vida: {digipymon.vida}")
+                    print(f"- Ataque: {digipymon.ataque}\n")
+                    iterador += 1
+                
+                control_numero = True
+                
+                #Entramos en otro bucle en el cuál preguntaremos por el id.
+
+                while control_numero:
+                    numero_digipymon = int(input("Escoge el número de tu digipymon: "))
+
+                    #En caso de que exista, se le resta uno al id y se utiliza como índice de la lista.
+
+                    if numero_digipymon <= len(jugador.lista_digipymon) and numero_digipymon > 0:
+
+                        #Se sumará 10 a la vida en caso de que el id sea válido, además de restarle 1 en el inventario al objeto pertinente.
+
+                        jugador.lista_digipymon[numero_digipymon - 1].vida += 10
+                        inventario.objetos[opcion] -= 1
+
+                        #Si 
+                        if inventario.objetos[opcion] <= 0:
+                            del inventario.objetos[opcion]
+                        print("¡Poción usada con éxito!")
+                        control_numero = False
+                    else:
+                        print("No has introducido un número válido, prueba de nuevo.")
+
+        #Se repetirá la funcionalidad con el otro objeto.
+        elif opcion == "Anabolizante":
+            if inventario.objetos[opcion] == 0:
+                print(f"No tienes anabolizantes...")
             else:
                 iterador = 1
                 print("Estos son tus digipymon: \n")
@@ -308,13 +366,23 @@ def usar_item(jugador, inventario):
                 while control_numero:
                     numero_digipymon = str(input("Escoge el número de tu digipymon: "))
                     if numero_digipymon <= len(jugador.lista_digipymon) and numero_digipymon > 0:
-                        jugador.lista_digipymon[numero_digipymon - 1].vida += 10
+                        jugador.lista_digipymon[numero_digipymon - 1].ataque += 5
+                        inventario.objetos[opcion] -= 1
+                        if inventario.objetos[opcion] < 0:
+                            del inventario.objetos[opcion]
                         print("¡Poción usada con éxito!")
                         control_numero = False
                     else:
                         print("No has introducido un número válido, prueba de nuevo.")
-            
-            
+
+        #Desactivamos el booleano de control en caso de que se quiera salir
+        elif opcion == "Salir":
+            print("Saliendo...")
+            control_inventario = False
+        
+        #Si la opción no es válida, se indica y se vuelve al bucle
+        else:
+            print("Opción no válida, prueba de nuevo...")
                 
 
 
