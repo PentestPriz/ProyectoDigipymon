@@ -352,12 +352,9 @@ def usar_item(jugador, inventario):
                         #Se sumará 10 a la vida en caso de que el id sea válido, además de restarle 1 en el inventario al objeto pertinente.
 
                         jugador.lista_digipymon[numero_digipymon - 1].vida += 10
-                        inventario.objetos[opcion] -= 1
-
-                        #Si 
-                        if inventario.objetos[opcion] <= 0:
-                            del inventario.objetos[opcion]
+                        inventario.usar_objeto(opcion) -= 1
                         print("¡Poción usada con éxito!")
+                        
                         control_numero = False
                     else:
                         print("No has introducido un número válido, prueba de nuevo.")
@@ -382,10 +379,8 @@ def usar_item(jugador, inventario):
                     numero_digipymon = str(input("Escoge el número de tu digipymon: "))
                     if numero_digipymon <= len(jugador.lista_digipymon) and numero_digipymon > 0:
                         jugador.lista_digipymon[numero_digipymon - 1].ataque += 5
-                        inventario.objetos[opcion] -= 1
-                        if inventario.objetos[opcion] < 0:
-                            del inventario.objetos[opcion]
-                        print("¡Poción usada con éxito!")
+                        inventario.usar_objeto(opcion) -= 1
+                        print("¡Anabolizante usado con éxito!")
                         control_numero = False
                     else:
                         print("No has introducido un número válido, prueba de nuevo.")
@@ -405,9 +400,17 @@ def main():
     Función principal del videojuego que nos permitirá jugar al mismo.
     """
 
-    #Creamos el objeto jugador y el inventario
-    jugador = Jugador()
+    print("¡Bienvenido al mundo de digipymon!\n")
+    print("Acabas de mudarte a pueblo paleto y tu madre te está llamando, pero..., ¿A qué nombre está llamando?")
+
+    nombre = str(input("Inserta aquí tu nombre..."))
+    
+    #Creamos el objeto jugador y el inventario a partir del nombre dado
+    jugador = Jugador(nombre)
     inventario = Inventario()
+
+    #Generamos el digipymon inicial a partir de esto mismo
+    digipymon_inicial = generar_digipymon_aleatorio()
 
     #Creamos el bucle principal del videojuego
     bucle = True
