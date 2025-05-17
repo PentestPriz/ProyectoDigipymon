@@ -387,13 +387,14 @@ def usar_item(jugador, inventario):
 
 def main():
     """
-    Función principal del videojuego, en la cuál se ejecutará el programa.
+    Función principal del videojuego que nos permitirá jugar.
     """
 
     #Creamos el objeto jugador y el inventario
     jugador = Jugador()
     inventario = Inventario()
 
+    #Creamos el bucle principal del videojuego
     bucle = True
     while bucle:
         seleccion = menu_opciones()
@@ -409,3 +410,8 @@ def main():
             inventario.consultar_inventario()
         elif seleccion == 6:
             jugador.consultar_digipymon()
+        elif seleccion == 7:
+            print("¡Adios!")
+            bucle = False
+        else:
+            print("Opción no válida")
