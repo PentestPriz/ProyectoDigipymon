@@ -13,6 +13,7 @@ class Jugador:
         """
         self.nombre = nombre
         self.lista_digipymon = []
+        self.lista_nombres_digipymon = []
         self.cantidad_digipymon = 0
         self.digicoins = 10
 
@@ -26,6 +27,7 @@ class Jugador:
             digipymon (Digipymon): Objeto de la clase Digipymon que añadiremos al jugador.
         """
         self.lista_digipymon.append(digipymon)
+        self.lista_nombres_digipymon.append(digipymon.nombre)
         self.cantidad_digipymon +=1
 
     def consultar_digipymon(self, digipymon):

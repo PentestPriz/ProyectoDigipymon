@@ -85,7 +85,7 @@ def digishop(jugadorObjeto, inventario):
     while bucle:
         print("Bienvenido a la Digishop:")
         print("Pulsa 1 para comprar una digipyball                - (5 digicoins)")
-        print("Pulsa 2 para comprar una poción de sanación(+10hp) - (3 digicoins)")
+        print("Pulsa 2 para comprar una poción (+10hp) - (3 digicoins)")
         print("Pulsa 3 para comprar un anabolizante(+5dmg)        - (3 digicoins)")
         print("Pulsa 4 para salir")
         eleccion = int(input("Elige una opción..."))
@@ -100,7 +100,7 @@ def digishop(jugadorObjeto, inventario):
                 
         elif eleccion == 2:
             if jugadorObjeto.consultar_digicoins >= 3:
-                inventario.añadir_objeto("Poción de sanación", 1)
+                inventario.añadir_objeto("Poción", 1)
                 jugadorObjeto.digicoins -= 3
                 print("Has comprado una poción de sanación.")
             else:
@@ -108,7 +108,7 @@ def digishop(jugadorObjeto, inventario):
                 
         elif eleccion == 3:
             if jugadorObjeto.consultar_digicoins >= 3:
-                inventario.añadir_objeto("anabolizante", 1)
+                inventario.añadir_objeto("Anabolizante", 1)
                 jugadorObjeto.digicoins -= 3
                 print("Has comprado un anabolizante.")
             else:
@@ -270,3 +270,54 @@ def combate(jugador):
         print(f"Digicoins: {jugador.digicoins}")
     else:
         print("La opción no es válida, prueba de nuevo.")
+
+def usar_item(jugador, inventario):
+    """
+    Función que nos permitirá utilizar y aprovechar los efectos de los objetos disponibles en nuestro inventario.
+    
+    Args:
+        inventario (Inventario()): Objeto de la clase inventario que nos ayudará con la gestión de estos objetos.
+    """
+
+    print("Este es tu inventario: ")
+
+    for nombre in inventario.objetos:
+        print(f"Nombre del objeto: {nombre}\nCantidad: {inventario.objetos[nombre]}\n")
+    
+    control_inventario = True
+    while control_inventario:
+        opcion = str(input("Escribe el nombre del objeto que deseas utilizar (Escribe Salir para salir):"))
+
+        if opcion == "Digipyball":
+            print("¡No puedes usar las digipyballs!")
+        elif opcion == "Poción":
+            if inventario.objetos[opcion] == 0:
+                print(f"No tienes pociones...")
+            else:
+                iterador = 1
+                print("Estos son tus digipymon: \n")
+                for digipymon in jugador.lista_digipymon:
+                    print(f"{iterador}.")
+                    print(f"- Nombre: {digipymon.nombre}")
+                    print(f"- Vida: {digipymon.vida}")
+                    print(f"- Ataque: {digipymon.ataque}\n")
+                    iterador += 1
+                
+                control_numero = True
+                
+                while control_numero:
+                    numero_digipymon = str(input("Escoge el número de tu digipymon: "))
+                    if numero_digipymon <= len(jugador.lista_digipymon) and numero_digipymon > 0:
+                        jugador.lista_digipymon[numero_digipymon - 1].vida += 10
+                        print("¡Poción usada con éxito!")
+                        control_numero = False
+                    else:
+                        print("No has introducido un número válido, prueba de nuevo.")
+            
+            
+                
+
+
+
+
+
