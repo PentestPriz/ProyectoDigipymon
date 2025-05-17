@@ -28,6 +28,10 @@ class Digipymon:
 
         Args:
             self: Referencia a los atributos propios.
+
+        Returns:
+            stats (str): Cadena de texto con las características de nuestro digipymon.
         """
         
-        print(f"Nombre del digipymon: {self.nombre}\nVida del digipymon: {self.vida}\nAtaque del digipymon: {self.ataque}\nVida del digipymon: {self.vida}\nTipo del digipymon: {self.tipo}\nNivel del digipymon: {self.nivel}")
+        stats = f"Nombre del digipymon: {self.nombre}\nVida del digipymon: {self.vida}\nAtaque del digipymon: {self.ataque}\nVida del digipymon: {self.vida}\nTipo del digipymon: {self.tipo}\nNivel del digipymon: {self.nivel}\n"
+        return stats

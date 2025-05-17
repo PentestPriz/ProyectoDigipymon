@@ -13,6 +13,9 @@ def menu_opciones():
     """
     Función que nos permitirá elegir una de las opciones de las disponibles en el videojuego.
     Todo ello se hará mediante diversos print
+
+    Returns:
+        seleccion (int): Selección de la opción realizada.
     """
 
     print("Escoja una de las siguientes opciones: ")
@@ -41,6 +44,9 @@ def generar_digipymon_aleatorio():
         nivel (int): Genera un nivel aleatorio entre 1 y 3.
         tipo (str): Genera un tipo de digipymon entre fuego, agua y planta.
         nombre (str): Genera un nombre aleatorio de digipymon de la lista de digipymons.
+
+    Returns:
+        digipymonObjeto (Digipymon): Digipymon resultante de el proceso de la propia función.
     """
     vida = random.randint(10, 20)
     ataque = random.randint(1, 10)
@@ -98,6 +104,14 @@ def buscar_digipymon_aleatorio(jugador, inventario):
             
 
 def digishop(jugadorObjeto, inventario):
+    """
+    Función digishop del proyecto digipymon.
+    Esta función nos permitirá interactuar con la tienda virtual del juego, comprando sus objetos.
+
+    Args: 
+        jugadorObjeto (Jugador): objeto de la clase Jugador que representará a nuestro jugador que comprará los objetos.
+        inventario (Inventario): objeto de la clase Inventario que representará el inventario en el que se almacenarán los objetos comprados.
+    """
     bucle = True
     while bucle:
         print("Bienvenido a la Digishop:")
@@ -320,7 +334,7 @@ def usar_item(jugador, inventario):
     Función que nos permitirá utilizar y aprovechar los efectos de los objetos disponibles en nuestro inventario.
     
     Args:
-        inventario (Inventario()): Objeto de la clase inventario que nos ayudará con la gestión de estos objetos.
+        inventario (Inventario): Objeto de la clase inventario que nos ayudará con la gestión de estos objetos.
     """
 
     print("Este es tu inventario: ")
@@ -362,9 +376,7 @@ def usar_item(jugador, inventario):
                 print("Estos son tus digipymon: \n")
                 for digipymon in jugador.lista_digipymon:
                     print(f"{iterador}.")
-                    print(f"- Nombre: {digipymon.nombre}")
-                    print(f"- Vida: {digipymon.vida}")
-                    print(f"- Ataque: {digipymon.ataque}\n")
+                    print(digipymon.__str__())
                     iterador += 1
                 
                 control_numero = True

@@ -40,11 +40,7 @@ class Jugador:
         """
         print("Estos son todos tus digipymon.\n")
         for iterador in self.lista_digipymon:
-            print("- Nombre: " + iterador.nombre)
-            print(f"- Ataque: {iterador.ataque}")
-            print(f"- Vida: {iterador.vida}")
-            print(f"- Tipo: {iterador.tipo}")
-            print(f"- Nivel: {iterador.nivel}\n")
+            print(iterador.__str__())
         print("Vaya..., esas son más criaturas que las disponibles en cierta saga de videojuegos...")
 
     def consultar_digicoins(self):
