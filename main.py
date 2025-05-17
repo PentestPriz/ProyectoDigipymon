@@ -60,24 +60,39 @@ def generar_digipymon_aleatorio():
 
 
 def buscar_digipymon_aleatorio(jugador, inventario):
+    """
+    Función buscar_digipymon_aleatorio del proyecto digipymon.
+    Esta función nos permitirá atrapar a los digipymons pertinentes para poder jugar en el juego.
+
+    Args:
+        jugador (Jugador): objeto de la clase jugador que representará al jugador del juego.
+        inventario (Inventario): objeto de la clase inventario que representará a nuestro jugador.
+    """
     digipymonObjeto = generar_digipymon_aleatorio()
     print(f"Vas andando por la hierba alta y... ¡Un {digipymonObjeto.nombre} salvaje apareció!")
     probabilidad = 100 - (digipymonObjeto.nivel * 10)
     print(f"Tienes un {probabilidad}% de probabilidad de capturarlo...")
     bucle = True
     while bucle:
-        case = int(input("------"))
+        case = int(input("¿Quieres capturar al digipymon? (Pulsa 1 si sí, cualquier otra cosa si no)"))
         if case == 1:
-            if "Digipyball" in inventario.objetos:
+            if "Digipyball" in inventario.objetos and jugador.cantidad_digipymon < 6:
                 inventario.usar_objeto("Digipyball")
                 azar = random.randint(1, 100)
                 if azar <= probabilidad:
                     print(f"¡Has capturado a {digipymonObjeto.nombre}!")
                     jugador.añadir_digipymon(digipymonObjeto)
                 else:
-                    print("No tienes digipyballs")
+                    print(f"¡No has podido capturar a {digipymonObjeto.nombre}...")
+                    
             else:
-                bucle = False
+                if "Digipyball" not in inventario.objetos:
+                        print("No puedes capturar sin digipyballs...")
+                else:
+                    print("Tienes demasiados digipymon...")
+        else:
+            print("¡Has huído del combate!")
+            bucle = False
             
 
 def digishop(jugadorObjeto, inventario):
