@@ -1,4 +1,4 @@
-class enemigo:
+class Enemigo:
     """
     Clase Enemigo del proyecto Digipymon.
     La clase se encargará de la gestión de enemigos  y la asociación con sus digipymons.
@@ -12,8 +12,8 @@ class enemigo:
             nombre (str): Cadena de caracteres que representa el nombre del enemigo
         """
         self.nombre = (nombre)
-        lista_digipymon = []
-        cantidad_digipymon = 0
+        self.lista_digipymon = []
+        self.cantidad_digipymon = 0
     
     def añadir_digipymon(self, digipymon):
         """
@@ -23,5 +23,5 @@ class enemigo:
             self: Referencia a los atributos propios.
             digipymon (Digipymon): Objeto de la clase Digipymon que añadiremos al enemigo.
         """
-        self.lista.digipymons(digipymon)
-        self.cantidad.digipymon = digipymon + 1
+        self.lista_digipymon.append(digipymon)
+        self.cantidad_digipymon += 1
