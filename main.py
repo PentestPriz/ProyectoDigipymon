@@ -45,8 +45,12 @@ def generar_digipymon_aleatorio():
     vida = random.randint(10, 20)
     ataque = random.randint(1, 10)
     nivel = random.randint(1,3)
-    tipo = random.choice("fuego", "agua", "planta")
-    nombre = ListaNombres.obtener_nombredigipymon()
+
+    lista_tipos = ["fuego", "agua", "planta"]
+    tipo = random.choice(lista_tipos)
+
+    lista_nombres = ListaNombres()
+    nombre = lista_nombres.obtener_nombredigipymon()
 
     digipymonObjeto = Digipymon(nombre, tipo, nivel, vida, ataque)
     return digipymonObjeto
@@ -55,27 +59,28 @@ def generar_digipymon_aleatorio():
 
 
 
-def buscar_digipymon_aleatorio(Jugador, Inventario):
+def buscar_digipymon_aleatorio(jugador, inventario):
     digipymonObjeto = generar_digipymon_aleatorio()
-    print(f"{digipymonObjeto}")
+    print(f"Vas andando por la hierba alta y... ¡Un {digipymonObjeto.nombre} salvaje apareció!")
     probabilidad = 100 - (digipymonObjeto.nivel * 10)
-    print(f"{probabilidad}")
+    print(f"Tienes un {probabilidad}% de probabilidad de capturarlo...")
     bucle = True
     while bucle:
         case = int(input("------"))
         if case == 1:
-            if "Digipyball" in Inventario.añadir_objeto["Digipyball"]:
-                Inventario.usar_objeto("Digipyball")
+            if "Digipyball" in inventario.objetos:
+                inventario.usar_objeto("Digipyball")
                 azar = random.randint(1, 100)
                 if azar <= probabilidad:
-                    Jugador.añadir_digipymon(digipymonObjeto)
+                    print(f"¡Has capturado a {digipymonObjeto.nombre}!")
+                    jugador.añadir_digipymon(digipymonObjeto)
                 else:
                     print("No tienes digipyballs")
             else:
                 bucle = False
             
 
-def digishop(jugadorObjeto: Jugador, inventario: Inventario):
+def digishop(jugadorObjeto, inventario):
     bucle = True
     while bucle:
         print("Bienvenido a la Digishop:")
@@ -83,35 +88,35 @@ def digishop(jugadorObjeto: Jugador, inventario: Inventario):
         print("Pulsa 2 para comprar una poción de sanación(+10hp) - (3 digicoins)")
         print("Pulsa 3 para comprar un anabolizante(+5dmg)        - (3 digicoins)")
         print("Pulsa 4 para salir")
-        eleccion = int (input())
+        eleccion = int(input("Elige una opción..."))
         
         if eleccion == 1:
-            if Jugador.consultar_digicoins >= 5:
-                Inventario.añadir_objeto("digipyballs", 1)
-                Jugador.consultar_digicoins = -5
+            if jugadorObjeto.consultar_digicoins >= 5:
+                inventario.añadir_objeto("Digipyball", 1)
+                jugadorObjeto.digicoins -= 5
                 print("Has comprado una digipyball.")
             else:
                 print("No tienes suficientes digicoins.")
                 
         elif eleccion == 2:
-            if Jugador.consultar_digicoins >= 3:
-                Inventario.añadir_objeto("poción de sanación", 1)
-                Jugador.consultar_digicoins = -3
+            if jugadorObjeto.consultar_digicoins >= 3:
+                inventario.añadir_objeto("Poción de sanación", 1)
+                jugadorObjeto.digicoins -= 3
                 print("Has comprado una poción de sanación.")
             else:
                 print("No tienes suficientes digicoins.")
                 
         elif eleccion == 3:
-            if Jugador.consultar_digicoins >= 3:
-                Inventario.añadir_objeto("anabolizante", 1)
-                Jugador.consultar_digicoins = -3
+            if jugadorObjeto.consultar_digicoins >= 3:
+                inventario.añadir_objeto("anabolizante", 1)
+                jugadorObjeto.digicoins -= 3
                 print("Has comprado un anabolizante.")
             else:
                 print("No tienes suficientes digicoins.")
                 
         elif eleccion == 4:
             bucle = False
-            print("Hasta pronto.")
+            print("¡Hasta pronto!")
             
         else:
             print("Opción no valida.")
@@ -248,7 +253,7 @@ def combate(jugador):
             jugador.digicoins += victorias
         elif victorias < derrotas:
             print("Has perdido el duelo...")
-            if jugador.digicoins < 0:
+            if jugador.digicoins <= 0:
                 print("No te quitamos digicoins ya que no tienes ni una...")
             else:
                 print(f"Perdiste {derrotas} digicoins...")
