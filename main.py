@@ -398,3 +398,35 @@ def usar_item(jugador, inventario):
         #Si la opción no es válida, se indica y se vuelve al bucle
         else:
             print("Opción no válida, prueba de nuevo...")
+                
+
+def main():
+    """
+    Función principal del videojuego que nos permitirá jugar al mismo.
+    """
+
+    #Creamos el objeto jugador y el inventario
+    jugador = Jugador()
+    inventario = Inventario()
+
+    #Creamos el bucle principal del videojuego
+    bucle = True
+    while bucle:
+        seleccion = menu_opciones()
+        if seleccion == 1:
+            buscar_digipymon_aleatorio(jugador, inventario)
+        elif seleccion == 2:
+            combate(jugador)
+        elif seleccion == 3:
+            digishop(jugador, inventario)
+        elif seleccion == 4:
+            usar_item(jugador, inventario)
+        elif seleccion == 5:
+            inventario.consultar_inventario()
+        elif seleccion == 6:
+            jugador.consultar_digipymon()
+        elif seleccion == 7:
+            print("¡Adios!")
+            bucle = False
+        else:
+            print("Opción no válida")
