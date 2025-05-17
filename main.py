@@ -383,9 +383,3 @@ def usar_item(jugador, inventario):
         #Si la opción no es válida, se indica y se vuelve al bucle
         else:
             print("Opción no válida, prueba de nuevo...")
-                
-
-
-
-
-
