@@ -116,7 +116,7 @@ def digishop(jugadorObjeto, inventario):
                 print("No tienes suficientes digicoins.")
                 
         elif eleccion == 2:
-            if jugadorObjeto.consultar_digicoins >= 3:
+            if jugadorObjeto.digicoins >= 3:
                 inventario.añadir_objeto("Poción", 1)
                 jugadorObjeto.digicoins -= 3
                 print("Has comprado una poción de sanación.")
@@ -124,7 +124,7 @@ def digishop(jugadorObjeto, inventario):
                 print("No tienes suficientes digicoins.")
                 
         elif eleccion == 3:
-            if jugadorObjeto.consultar_digicoins >= 3:
+            if jugadorObjeto.digicoins >= 3:
                 inventario.añadir_objeto("Anabolizante", 1)
                 jugadorObjeto.digicoins -= 3
                 print("Has comprado un anabolizante.")
@@ -285,8 +285,7 @@ def combate(jugador):
             control_combate = False
 
         elif opcion == 2:
-            print("¡Has huído del combate!")
-            if jugador.digicoins < 0:
+            if jugador.digicoins > 0:
                 jugador.digicoins -= 1
                 print("¡Has huído exitosamente!")
                 control_combate = False
