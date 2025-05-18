@@ -28,7 +28,7 @@ class Jugador:
         """
         self.lista_digipymon.append(digipymon)
         self.lista_nombres_digipymon.append(digipymon.nombre)
-        self.cantidad_digipymon +=1
+        self.cantidad_digipymon += 1
 
     def consultar_digipymon(self):
         """
@@ -36,7 +36,6 @@ class Jugador:
 
         Args:
             self: Referencia a los atributos propios.
-            digipymon (Digipymon): Objeto de la clase Digipymon que añadiremos al jugador
         """
         print("Estos son todos tus digipymon.\n")
         for iterador in self.lista_digipymon:

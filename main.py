@@ -85,8 +85,7 @@ def buscar_digipymon_aleatorio(jugador, inventario):
             if "Digipyball" in inventario.objetos and jugador.cantidad_digipymon < 6:
                 inventario.usar_objeto("Digipyball")
                 azar = random.randint(1, 100)
-                azar2 = 1
-                if azar2 <= probabilidad:
+                if azar <= probabilidad:
                     print(f"¡Has capturado a {digipymonObjeto.nombre}!\n")
                     jugador.añadir_digipymon(digipymonObjeto)
                     bucle = False
@@ -334,7 +333,8 @@ def usar_item(jugador, inventario):
     Función que nos permitirá utilizar y aprovechar los efectos de los objetos disponibles en nuestro inventario.
     
     Args:
-        inventario (Inventario): Objeto de la clase inventario que nos ayudará con la gestión de estos objetos.
+        jugador (Jugador): Objeto de la clase jugador que representa al jugador de nuestro videojuego, el cuál utilizará los objetos.
+        inventario (Inventario): Objeto de la clase inventario que nos permitirá la gestión de estos objetos.
     """
 
     print("Este es tu inventario: ")
@@ -355,12 +355,15 @@ def usar_item(jugador, inventario):
 
         if opcion == "Digipyball":
             print("¡No puedes usar las digipyballs fuera de encuentros!")
+
+            if opcion not in inventario.objetos:
+                print("Además, que más da, si no tienes ni una...")
         
         elif opcion == "Poción":
             
             #Comprueba si hay pociones
 
-            if inventario.objetos[opcion] == 0:
+            if opcion not in inventario.objetos:
                 print("No tienes pociones...")
 
             else:
@@ -402,7 +405,7 @@ def usar_item(jugador, inventario):
 
         #Se repetirá la funcionalidad con el otro objeto.
         elif opcion == "Anabolizante":
-            if inventario.objetos[opcion] == 0:
+            if opcion not in inventario.objetos:
                 print(f"No tienes anabolizantes...")
             else:
                 iterador = 1

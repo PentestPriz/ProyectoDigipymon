@@ -11,7 +11,7 @@ class Enemigo:
             self: Referencia a los atributos propios.
             nombre (str): Cadena de caracteres que representa el nombre del enemigo
         """
-        self.nombre = (nombre)
+        self.nombre = nombre
         self.lista_digipymon = []
         self.cantidad_digipymon = 0
     

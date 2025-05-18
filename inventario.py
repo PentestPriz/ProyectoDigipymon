@@ -2,7 +2,7 @@ class Inventario:
     """
     Clase Inventario del Proyecto Digipymon.
 
-    Nos permitirá gestionar el inventario (lugar virtual donde guardarán
+    Nos permitirá gestionar el inventario (lugar virtual donde se guardarán los distintos objetos del videojuego
     los objetos del videojuego, los cuales modificarán los atributos de los jugadores del juego de rol).
     """
 

@@ -22,13 +22,23 @@ class ListaNombres:
 
         Args:
             self: Referencia a los atributos propios
+
+        Returns:
+            eleccion (str): Cadena de texto que representa el nombre escogido.
         """
-        return random.choice(self.nombres_digipymon)
+        eleccion = random.choice(self.nombres_digipymon)
+        return eleccion
+    
     def obtener_nombreentrenador(self):
         """
         Método que nos permite obtener un nombre de entrenador aleatorio de la lista de 20.
 
         Args:
             self: Referencia a los atributos propios
+
+        Returns:
+            eleccion (str): Cadena de texto que representa el nombre escogido.
         """
-        return random.choice(self.nombres_entrenadores)
+
+        eleccion = random.choice(self.nombres_entrenadores)
+        return eleccion

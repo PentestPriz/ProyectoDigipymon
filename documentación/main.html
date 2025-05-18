@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module main</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">main</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:c%3A%5Cproyectodigipymon%5Cproyectodigipymon%5Cmain.py">c:\proyectodigipymon\proyectodigipymon\main.py</a></td></tr></table>
+    <p><span class="code">Clase&nbsp;"main"&nbsp;del&nbsp;proyecto&nbsp;digipymon,&nbsp;esta&nbsp;será&nbsp;la&nbsp;clase&nbsp;base&nbsp;para&nbsp;el&nbsp;funcionamiento&nbsp;del&nbsp;programa</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="random.html">random</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-buscar_digipymon_aleatorio"><strong>buscar_digipymon_aleatorio</strong></a>(jugador, inventario)</dt><dd><span class="code">Función&nbsp;buscar_digipymon_aleatorio&nbsp;del&nbsp;proyecto&nbsp;digipymon.<br>
+Esta&nbsp;función&nbsp;nos&nbsp;permitirá&nbsp;atrapar&nbsp;a&nbsp;los&nbsp;digipymons&nbsp;pertinentes&nbsp;para&nbsp;poder&nbsp;jugar&nbsp;en&nbsp;el&nbsp;juego.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;jugador&nbsp;(Jugador):&nbsp;objeto&nbsp;de&nbsp;la&nbsp;clase&nbsp;jugador&nbsp;que&nbsp;representará&nbsp;al&nbsp;jugador&nbsp;del&nbsp;juego.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;inventario&nbsp;(Inventario):&nbsp;objeto&nbsp;de&nbsp;la&nbsp;clase&nbsp;inventario&nbsp;que&nbsp;representará&nbsp;a&nbsp;nuestro&nbsp;jugador.</span></dd></dl>
+ <dl><dt><a name="-combate"><strong>combate</strong></a>(jugador)</dt><dd><span class="code">Función&nbsp;que&nbsp;nos&nbsp;permitirá&nbsp;entrar&nbsp;en&nbsp;combate&nbsp;con&nbsp;un&nbsp;digipymon&nbsp;generado&nbsp;de&nbsp;manera&nbsp;aleatoria.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;jugador&nbsp;(Jugador):&nbsp;Objeto&nbsp;que&nbsp;de&nbsp;la&nbsp;clase&nbsp;Jugador&nbsp;que&nbsp;representa&nbsp;al&nbsp;jugador&nbsp;de&nbsp;nuestro&nbsp;videojuego.</span></dd></dl>
+ <dl><dt><a name="-digishop"><strong>digishop</strong></a>(jugadorObjeto, inventario)</dt><dd><span class="code">Función&nbsp;digishop&nbsp;del&nbsp;proyecto&nbsp;digipymon.<br>
+Esta&nbsp;función&nbsp;nos&nbsp;permitirá&nbsp;interactuar&nbsp;con&nbsp;la&nbsp;tienda&nbsp;virtual&nbsp;del&nbsp;juego,&nbsp;comprando&nbsp;sus&nbsp;objetos.<br>
+&nbsp;<br>
+Args:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;jugadorObjeto&nbsp;(Jugador):&nbsp;objeto&nbsp;de&nbsp;la&nbsp;clase&nbsp;Jugador&nbsp;que&nbsp;representará&nbsp;a&nbsp;nuestro&nbsp;jugador&nbsp;que&nbsp;comprará&nbsp;los&nbsp;objetos.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;inventario&nbsp;(Inventario):&nbsp;objeto&nbsp;de&nbsp;la&nbsp;clase&nbsp;Inventario&nbsp;que&nbsp;representará&nbsp;el&nbsp;inventario&nbsp;en&nbsp;el&nbsp;que&nbsp;se&nbsp;almacenarán&nbsp;los&nbsp;objetos&nbsp;comprados.</span></dd></dl>
+ <dl><dt><a name="-generar_digipymon_aleatorio"><strong>generar_digipymon_aleatorio</strong></a>()</dt><dd><span class="code">Función&nbsp;que&nbsp;nos&nbsp;permitirá&nbsp;generar&nbsp;un&nbsp;digipymon&nbsp;aleatorio.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;vida&nbsp;(int):&nbsp;Genera&nbsp;puntos&nbsp;de&nbsp;vida&nbsp;aleatorios&nbsp;entre&nbsp;10&nbsp;y&nbsp;20.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ataque&nbsp;(int):&nbsp;Genera&nbsp;puntos&nbsp;de&nbsp;ataque&nbsp;aleatorios&nbsp;entre&nbsp;1&nbsp;y&nbsp;10.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;nivel&nbsp;(int):&nbsp;Genera&nbsp;un&nbsp;nivel&nbsp;aleatorio&nbsp;entre&nbsp;1&nbsp;y&nbsp;3.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;tipo&nbsp;(str):&nbsp;Genera&nbsp;un&nbsp;tipo&nbsp;de&nbsp;digipymon&nbsp;entre&nbsp;fuego,&nbsp;agua&nbsp;y&nbsp;planta.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;nombre&nbsp;(str):&nbsp;Genera&nbsp;un&nbsp;nombre&nbsp;aleatorio&nbsp;de&nbsp;digipymon&nbsp;de&nbsp;la&nbsp;lista&nbsp;de&nbsp;digipymons.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;digipymonObjeto&nbsp;(Digipymon):&nbsp;Digipymon&nbsp;resultante&nbsp;de&nbsp;el&nbsp;proceso&nbsp;de&nbsp;la&nbsp;propia&nbsp;función.</span></dd></dl>
+ <dl><dt><a name="-main"><strong>main</strong></a>()</dt><dd><span class="code">Función&nbsp;principal&nbsp;del&nbsp;videojuego&nbsp;que&nbsp;nos&nbsp;permitirá&nbsp;jugar&nbsp;al&nbsp;mismo.</span></dd></dl>
+ <dl><dt><a name="-menu_opciones"><strong>menu_opciones</strong></a>()</dt><dd><span class="code">Función&nbsp;que&nbsp;nos&nbsp;permitirá&nbsp;elegir&nbsp;una&nbsp;de&nbsp;las&nbsp;opciones&nbsp;de&nbsp;las&nbsp;disponibles&nbsp;en&nbsp;el&nbsp;videojuego.<br>
+Todo&nbsp;ello&nbsp;se&nbsp;hará&nbsp;mediante&nbsp;diversos&nbsp;print<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;seleccion&nbsp;(int):&nbsp;Selección&nbsp;de&nbsp;la&nbsp;opción&nbsp;realizada.</span></dd></dl>
+ <dl><dt><a name="-usar_item"><strong>usar_item</strong></a>(jugador, inventario)</dt><dd><span class="code">Función&nbsp;que&nbsp;nos&nbsp;permitirá&nbsp;utilizar&nbsp;y&nbsp;aprovechar&nbsp;los&nbsp;efectos&nbsp;de&nbsp;los&nbsp;objetos&nbsp;disponibles&nbsp;en&nbsp;nuestro&nbsp;inventario.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;jugador&nbsp;(Jugador):&nbsp;Objeto&nbsp;de&nbsp;la&nbsp;clase&nbsp;jugador&nbsp;que&nbsp;representa&nbsp;al&nbsp;jugador&nbsp;de&nbsp;nuestro&nbsp;videojuego,&nbsp;el&nbsp;cuál&nbsp;utilizará&nbsp;los&nbsp;objetos.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;inventario&nbsp;(Inventario):&nbsp;Objeto&nbsp;de&nbsp;la&nbsp;clase&nbsp;inventario&nbsp;que&nbsp;nos&nbsp;permitirá&nbsp;la&nbsp;gestión&nbsp;de&nbsp;estos&nbsp;objetos.</span></dd></dl>
+</td></tr></table>
+</body></html>
