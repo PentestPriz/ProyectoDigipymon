@@ -113,12 +113,13 @@ def digishop(jugadorObjeto, inventario):
     """
     bucle = True
     while bucle:
+        print(f"\nDigicoins disponibles: {jugadorObjeto.digicoins}")
         print("Bienvenido a la Digishop:")
         print("Pulsa 1 para comprar una digipyball                - (5 digicoins)")
         print("Pulsa 2 para comprar una poción (+10hp)            - (3 digicoins)")
         print("Pulsa 3 para comprar un anabolizante(+5dmg)        - (3 digicoins)")
         print("Pulsa 4 para salir")
-        eleccion = int(input("Elige una opción..."))
+        eleccion = int(input("Elige una opción...\n"))
         
         if eleccion == 1:
             if jugadorObjeto.digicoins >= 5:
@@ -146,7 +147,7 @@ def digishop(jugadorObjeto, inventario):
                 
         elif eleccion == 4:
             bucle = False
-            print("¡Hasta pronto!")
+            print("¡Hasta pronto!\n")
             
         else:
             print("Opción no valida.")
@@ -179,7 +180,7 @@ def combate(jugador):
     while control_combate:
     #Preguntamos al usuario por la opción a realizar:
 
-        print("¡Elije una de las siguientes opciones!")
+        print("\n¡Elije una de las siguientes opciones!")
         print("1. Combatir")
         print("2. Huir (cuesta 1 digicoin)")
         opcion = int(input())
@@ -297,21 +298,21 @@ def combate(jugador):
             print(f"Derrotas: {derrotas}\n")
 
             if victorias > derrotas:
-                print(f"¡Has ganado el duelo, ganaste {victorias} digicoins!")
+                print(f"¡Has ganado el duelo, ganaste {victorias} digicoins!\n")
                 jugador.digicoins += victorias
             elif victorias < derrotas:
                 print("Has perdido el duelo...")
                 if jugador.digicoins <= 0:
-                    print("No te quitamos digicoins ya que no tienes ni una...")
+                    print("No te quitamos digicoins ya que no tienes ni una...\n")
                 else:
-                    print(f"Perdiste {derrotas} digicoins...")
+                    print(f"Perdiste {derrotas} digicoins...\n")
                     jugador.digicoins -= derrotas
 
                     if jugador.digicoins < 0:
-                        print("No tienes para pagar todo, pero te haremos el favor, anda...")
+                        print("No tienes para pagar todo, pero te haremos el favor, anda...\n")
                         jugador.digicoins = 0
             else:
-                print("Has quedado empate..., no vamos a quitarte monedas por el mal trago...")
+                print("Has quedado empate..., no vamos a quitarte monedas por el mal trago...\n")
 
             print(f"\nDigicoins actuales: {jugador.digicoins}")
             control_combate = False
@@ -319,7 +320,7 @@ def combate(jugador):
         elif opcion == 2:
             if jugador.digicoins > 0:
                 jugador.digicoins -= 1
-                print("¡Has huído exitosamente!")
+                print("¡Has huído exitosamente!\n")
                 control_combate = False
             else:
                 print("No tienes suficientes digicoins.")
@@ -397,7 +398,7 @@ def usar_item(jugador, inventario):
 
                         jugador.lista_digipymon[numero_digipymon - 1].vida += 10
                         inventario.usar_objeto(opcion)
-                        print("¡Poción usada con éxito!")
+                        print("¡Poción usada con éxito!\n")
                         
                         control_numero = False
                     else:
@@ -424,14 +425,14 @@ def usar_item(jugador, inventario):
                     if numero_digipymon <= len(jugador.lista_digipymon) and numero_digipymon > 0:
                         jugador.lista_digipymon[numero_digipymon - 1].ataque += 5
                         inventario.usar_objeto(opcion)
-                        print("¡Anabolizante usado con éxito!")
+                        print("¡Anabolizante usado con éxito!\n")
                         control_numero = False
                     else:
                         print("No has introducido un número válido, prueba de nuevo.")
 
         #Desactivamos el booleano de control en caso de que se quiera salir
         elif opcion == "Salir":
-            print("Saliendo...")
+            print("Saliendo...\n")
             control_inventario = False
         
         #Si la opción no es válida, se indica y se vuelve al bucle
